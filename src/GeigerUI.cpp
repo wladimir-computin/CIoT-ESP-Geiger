@@ -31,7 +31,7 @@ ProcessMessageStruct GeigerUI::processMessage(String &message) {
     json["uSv_h_accurate"] = geiger.to_uSvh(cpm_precise);
     String out;
     serializeJsonPretty(json, out);
-    return {DATA, out};
+    return {DATA, out, FLAG_KEEP_ALIVE};
   }
 
   if (COMMAND_GETGEIGER_TICKARRAY.check(message)) {
